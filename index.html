@@ -81,29 +81,6 @@
 						<li>Chalmers student</li>
 					</ul>
 				</div>
-				<div class="social">
-					<p>
-						Du kan nå mig här
-					</p>
-					<div class="links">
-						<a href="https://github.com/konradrej" rel="noreferrer" target="_blank">Github</a>
-						<a href="https://www.linkedin.com/in/konrad-rej-908900193" rel="noreferrer" target="_blank">Linkedin</a>
-						<a href="#contact-me">Kontakta mig</a>
-						<a href="mailto:rej.konrad@gmail.com" class="email" onclick="event.preventDefault();this.classList.add('toggle');">
-							<div class="email-inner">
-								<label for="email-button" class="email-inner-front" title="rej.konrad@gmail.com">
-									Email
-								</label>
-								<div class="email-inner-back">
-									<input type="text" id="email-button" value="rej.konrad@gmail.com" onClick="this.select();this.setSelectionRange(0, 99999);document.execCommand('copy');this.nextSibling.nextSibling.style.animationName = 'none';this.nextSibling.nextSibling.offsetHeight;this.nextSibling.nextSibling.style.animationName = 'tooltip';">
-									<div class="tooltip">
-										Email kopierad.
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
 			</div>
 		</section>
 		<section id="projects" class="banner">
@@ -167,36 +144,35 @@
 			</div>
 		</section>
 		<section id="contact-me" class="banner">
-			<div class="loader">
-				<div class="spinner"></div>
-				<div class="message"></div>
-			</div>
 			<div class="wrapper">
 				<h2>Kontakta mig</h2>
 				<p>
 					Har du frågor så kan du kontakta mig genom formuläret nedan eller genom att mejla mig på <a href="mailto:rej.konrad@gmail.com">rej.konrad@gmail.com</a>
 				</p>
-				<form action="./index.php" method="post">
-					<label>
-						<input id="name" aria-label="Namn" type="text" placeholder="Namn*" name="name" required>
-					</label>
-					<label>
-						<input id="email" aria-label="Email" type="email" placeholder="Email*" name="email" required>
-					</label>
-					<label>
-						<input id="topic" aria-label="Ämne" type="text" placeholder="Ämne*" name="topic" autocomplete="off" required>
-					</label>
-					<label>
-						<textarea id="message" aria-label="Meddelande" placeholder="Meddelande*" name="message" rows="4" autocomplete="off" required></textarea>
-					</label>
+				<div class="social">
+					<p>
+						Du kan nå mig här
+					</p>
+					<div class="links">
+						<a href="https://github.com/konradrej" rel="noreferrer" target="_blank">Github</a>
+						<a href="https://www.linkedin.com/in/konrad-rej-908900193" rel="noreferrer" target="_blank">Linkedin</a>
+						<a href="#contact-me">Kontakta mig</a>
+						<a href="mailto:rej.konrad@gmail.com" class="email" onclick="event.preventDefault();this.classList.add('toggle');">
+							<div class="email-inner">
+								<label for="email-button" class="email-inner-front" title="rej.konrad@gmail.com">
+									Email
+								</label>
+								<div class="email-inner-back">
+									<input type="text" id="email-button" value="rej.konrad@gmail.com" onClick="this.select();this.setSelectionRange(0, 99999);document.execCommand('copy');this.nextSibling.nextSibling.style.animationName = 'none';this.nextSibling.nextSibling.offsetHeight;this.nextSibling.nextSibling.style.animationName = 'tooltip';">
+									<div class="tooltip">
+										Email kopierad.
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
 
-					<button type="reset">
-						Återställ <span class="cross"></span>
-					</button>
-					<button type="submit">
-						Skicka <span class="arrows"></span>
-					</button>
-				</form>
 			</div>
 		</section>
 	</main>

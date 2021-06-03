@@ -492,128 +492,6 @@ section#about-me div.wrapper div.info ul {
   grid-area: tldr;
   margin: 0.6em 0;
 }
-section#about-me div.wrapper div.social {
-  width: 100%;
-  display: flex;
-  border-top: 1px solid lightgrey;
-  padding-top: 0.6em;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-section#about-me div.wrapper div.social p {
-  flex: 0 0 auto;
-  margin-right: 0.6em;
-}
-section#about-me div.wrapper div.social div.links {
-  flex: 0 0 auto;
-  display: grid;
-  padding: 0.3em;
-  grid-gap: 0.6em;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-section#about-me div.wrapper div.social div.links a:not(.email) {
-  display: block;
-  padding: 1.5em 1.7em;
-  background: white;
-  box-shadow: 0 0 5px lightgrey;
-  transition: 0.2s ease background, 0.2s ease color;
-  text-align: center;
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-section#about-me div.wrapper div.social div.links a:not(.email):hover, section#about-me div.wrapper div.social div.links a:not(.email):focus {
-  color: white;
-  background: #D14557;
-}
-section#about-me div.wrapper div.social div.links a.email {
-  perspective: 1000px;
-  display: block;
-}
-section#about-me div.wrapper div.social div.links a.email div.email-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  display: block;
-  background: white;
-  box-sizing: border-box;
-  text-align: center;
-  color: black;
-  text-decoration: none;
-}
-section#about-me div.wrapper div.social div.links a.email div.email-inner label.email-inner-front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background: white;
-  color: black;
-  padding: 1.5em;
-  box-sizing: border-box;
-  box-shadow: 0 0 5px lightgrey;
-  cursor: pointer;
-  display: block;
-}
-section#about-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background-color: #D14557;
-  color: white;
-  transform: rotateX(180deg);
-  padding: 1.5em 0.5em;
-  box-sizing: border-box;
-}
-section#about-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back input {
-  width: 100%;
-  border: none;
-  padding: 0.1em;
-  font-family: inherit;
-  font-size: 1em;
-}
-section#about-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back div.tooltip {
-  content: "Email kopierad.";
-  display: block;
-  position: absolute;
-  background: rgba(50, 50, 50, 0.8);
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1.5em 0.5em;
-  pointer-events: none;
-  opacity: 0;
-  animation-fill-mode: forwards;
-  animation-duration: 2s;
-  animation-timing-function: ease;
-}
-@keyframes tooltip {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-section#about-me div.wrapper div.social div.links a.email:hover div.email-inner label.email-inner-front, section#about-me div.wrapper div.social div.links a.email:focus div.email-inner label.email-inner-front {
-  color: white;
-  background: #D14557;
-}
-section#about-me div.wrapper div.social div.links a.email.toggle div.email-inner {
-  transform: rotateX(180deg);
-}
 section#projects {
   height: 42.5vw;
   max-height: 481.95px;
@@ -913,75 +791,6 @@ section#contact-me {
   border-top: 1px solid #161616;
   box-shadow: 0 0 5px #161616;
 }
-section#contact-me div.loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease, background 0.5s ease;
-  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
-  color: white;
-}
-section#contact-me div.loader div.spinner {
-  display: block;
-  width: 64px;
-  height: 64px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-section#contact-me div.loader div.spinner:after {
-  content: " ";
-  display: block;
-  width: 46px;
-  height: 46px;
-  margin: 1px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  border-color: #fff transparent #fff transparent;
-  animation: spinner-animation 1.2s linear infinite;
-}
-section#contact-me div.loader div.message {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  font-size: 1.3em;
-}
-@keyframes spinner-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-section#contact-me div.loader.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-section#contact-me div.loader.visible.loading div.spinner {
-  opacity: 1;
-}
-section#contact-me div.loader.visible.status div.message {
-  opacity: 1;
-}
-section#contact-me div.loader.visible.status.success {
-  background: rgba(0, 255, 0, 0.5);
-}
-section#contact-me div.loader.visible.status.error {
-  background: rgba(255, 0, 0, 0.5);
-}
 section#contact-me div.wrapper {
   padding: 1em 4em;
   width: 100%;
@@ -1002,178 +811,127 @@ section#contact-me div.wrapper p a {
 section#contact-me div.wrapper p a:hover {
   color: darkgrey;
 }
-section#contact-me div.wrapper form {
-  text-align: right;
-}
-section#contact-me div.wrapper form label {
+section#contact-me div.wrapper div.social {
   width: 100%;
+  display: flex;
+  border-top: 1px solid lightgrey;
+  padding-top: 0.6em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+section#contact-me div.wrapper div.social p {
+  flex: 0 0 auto;
+  margin-right: 0.6em;
+}
+section#contact-me div.wrapper div.social div.links {
+  flex: 0 0 auto;
+  display: grid;
+  padding: 0.3em;
+  grid-gap: 0.6em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+section#contact-me div.wrapper div.social div.links a:not(.email) {
   display: block;
-  margin-top: 0.8em;
-  position: relative;
-  text-align: left;
-}
-section#contact-me div.wrapper form label input {
-  width: 100%;
-  box-sizing: border-box;
-  background: #e8e8e8;
-  padding: 0.5em;
-  font-size: 0.95em;
-  vertical-align: middle;
-  font-family: "Roboto", sans-serif !important;
-  border: 0px;
-  outline: 2px solid transparent;
-}
-section#contact-me div.wrapper form label input::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #888;
-}
-section#contact-me div.wrapper form label input:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #888;
-  opacity: 1;
-}
-section#contact-me div.wrapper form label input::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #888;
-  opacity: 1;
-}
-section#contact-me div.wrapper form label input:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #888;
-}
-section#contact-me div.wrapper form label input::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #888;
-}
-section#contact-me div.wrapper form label input::placeholder {
-  /* Most modern browsers support this now. */
-  color: #888;
-}
-section#contact-me div.wrapper form label textarea {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 2.3em;
-  box-sizing: border-box;
-  background: #e8e8e8;
-  padding: 0.5em;
-  font-size: 0.95em;
-  font-family: "Roboto", sans-serif !important;
-  border: 0px;
-  display: block;
-  outline: 2px solid transparent;
-}
-section#contact-me div.wrapper form label textarea::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #888;
-}
-section#contact-me div.wrapper form label textarea:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #888;
-  opacity: 1;
-}
-section#contact-me div.wrapper form label textarea::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #888;
-  opacity: 1;
-}
-section#contact-me div.wrapper form label textarea:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #888;
-}
-section#contact-me div.wrapper form label textarea::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #888;
-}
-section#contact-me div.wrapper form label textarea::placeholder {
-  /* Most modern browsers support this now. */
-  color: #888;
-}
-section#contact-me div.wrapper form label .error {
-  outline: 4px solid red;
-}
-section#contact-me div.wrapper form button {
-  margin-top: 0.8em;
-  padding: 0.5em;
-  font-size: 1em;
-  border: 3px solid white;
-  color: white;
-  background: rgba(0, 0, 0, 0.2);
-  font-family: "Roboto", sans-serif !important;
+  padding: 1.5em 1.7em;
+  background: white;
+  box-shadow: 0 0 5px lightgrey;
+  transition: 0.2s ease background, 0.2s ease color;
+  text-align: center;
+  color: black;
+  text-decoration: none;
   cursor: pointer;
-  text-transform: uppercase;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  font-weight: bold;
 }
-section#contact-me div.wrapper form button span.arrows {
-  width: 18px;
-  position: relative;
-  display: inline-block;
-  transform: rotate(270deg);
-  vertical-align: middle;
-  margin-top: -2px;
+section#contact-me div.wrapper div.social div.links a:not(.email):hover, section#contact-me div.wrapper div.social div.links a:not(.email):focus {
+  color: white;
+  background: #D14557;
 }
-section#contact-me div.wrapper form button span.arrows:before, section#contact-me div.wrapper form button span.arrows:after {
-  content: "";
+section#contact-me div.wrapper div.social div.links a.email {
+  perspective: 1000px;
   display: block;
+}
+section#contact-me div.wrapper div.social div.links a.email div.email-inner {
   position: relative;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-  transform: rotate(45deg);
-  width: 8px;
-  height: 8px;
-  margin-left: 4px;
-  margin-top: -4px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  display: block;
+  background: white;
+  box-sizing: border-box;
+  text-align: center;
+  color: black;
+  text-decoration: none;
 }
-section#contact-me div.wrapper form button span.arrows:after {
-  margin-top: -2px;
+section#contact-me div.wrapper div.social div.links a.email div.email-inner label.email-inner-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: white;
+  color: black;
+  padding: 1.5em;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px lightgrey;
+  cursor: pointer;
+  display: block;
 }
-section#contact-me div.wrapper form button span.cross {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  display: inline-block;
-  transform: rotate(270deg);
-  vertical-align: middle;
-  margin-top: -3px;
+section#contact-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #D14557;
+  color: white;
+  transform: rotateX(180deg);
+  padding: 1.5em 0.5em;
+  box-sizing: border-box;
 }
-section#contact-me div.wrapper form button span.cross:before, section#contact-me div.wrapper form button span.cross:after {
-  content: "";
+section#contact-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back input {
+  width: 100%;
+  border: none;
+  padding: 0.1em;
+  font-family: inherit;
+  font-size: 1em;
+}
+section#contact-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back div.tooltip {
+  content: "Email kopierad.";
   display: block;
   position: absolute;
-  border-bottom: 2px solid;
-  transform: rotate(45deg);
-  width: 18px;
-  height: 0;
-  top: 0;
+  background: rgba(50, 50, 50, 0.8);
+  bottom: 0;
   left: 0;
-  margin-top: 7px;
-  margin-left: -1px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.5em 0.5em;
+  pointer-events: none;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: ease;
 }
-section#contact-me div.wrapper form button span.cross:after {
-  transform: rotate(-45deg);
+@keyframes tooltip {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-section#contact-me div.wrapper form button[type=reset] {
-  border-color: #ff3232;
+section#contact-me div.wrapper div.social div.links a.email:hover div.email-inner label.email-inner-front, section#contact-me div.wrapper div.social div.links a.email:focus div.email-inner label.email-inner-front {
+  color: white;
+  background: #D14557;
 }
-section#contact-me div.wrapper form button[type=reset]:hover, section#contact-me div.wrapper form button[type=reset]:focus {
-  border-color: #ff0000;
-  background: #ff0000;
-}
-section#contact-me div.wrapper form button[type=reset]:active {
-  border-color: #cc0000;
-  background: #cc0000;
-}
-section#contact-me div.wrapper form button[type=submit] {
-  border-color: #329932;
-}
-section#contact-me div.wrapper form button[type=submit]:hover, section#contact-me div.wrapper form button[type=submit]:focus {
-  border-color: #008000;
-  background: #008000;
-}
-section#contact-me div.wrapper form button[type=submit]:active {
-  border-color: #006600;
-  background: #006600;
+section#contact-me div.wrapper div.social div.links a.email.toggle div.email-inner {
+  transform: rotateX(180deg);
 }
 
 @media (min-width: 1217px) {

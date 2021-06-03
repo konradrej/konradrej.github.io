@@ -248,156 +248,6 @@ section {
 					margin: 0.6em 0;
 				}
 			}
-
-			div.social {
-				width: 100%;
-				display: flex;
-				border-top: 1px solid lightgrey;
-				padding-top: 0.6em;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: center;
-
-				p {
-					flex: 0 0 auto;
-					margin-right: 0.6em;
-				}
-
-				div.links {
-					flex: 0 0 auto;
-					display: grid;
-					padding: 0.3em;
-					grid-gap: 0.6em;
-					grid-template-columns: 1fr 1fr;
-					grid-template-rows: 1fr 1fr;
-
-					a:not(.email) {
-						display: block;
-						padding: 1.5em 1.7em;
-						background: white;
-						box-shadow: 0 0 5px lightgrey;
-						transition: 0.2s ease background, 0.2s ease color;
-						text-align: center;
-						color: black;
-						text-decoration: none;
-						cursor: pointer;
-
-						&:hover, &:focus {
-							color: white;
-							background: #D14557;
-						}
-					}
-
-					a.email {
-						perspective: 1000px;
-						display: block;
-
-						div.email-inner {
-							position: relative;
-							width: 100%;
-							height: 100%;
-							text-align: center;
-							transition: transform 0.8s;
-							transform-style: preserve-3d;
-							display: block;
-							background: white;
-							box-sizing: border-box;
-							text-align: center;
-							color: black;
-							text-decoration: none;
-
-
-							label.email-inner-front {
-								position: absolute;
-								width: 100%;
-								height: 100%;
-								backface-visibility: hidden;
-								background: white;
-								color: black;
-								padding: 1.5em;
-								box-sizing: border-box;
-								box-shadow: 0 0 5px lightgrey;
-								cursor: pointer;
-								display: block;
-
-								span {
-
-								}
-							}
-
-							div.email-inner-back {
-								position: absolute;
-								width: 100%;
-								height: 100%;
-								backface-visibility: hidden;
-								background-color: #D14557;
-								color: white;
-								transform: rotateX(180deg);
-								padding: 1.5em 0.5em;
-								box-sizing: border-box;
-
-								input {
-									width: 100%;
-									border: none;
-									padding: 0.1em;
-									font-family: inherit;
-									font-size: 1em;
-								}
-
-								div.tooltip {
-									content: 'Email kopierad.';
-									display: block;
-									position: absolute;
-									background: rgba(50, 50, 50, 0.8);
-									bottom: 0;
-									left: 0;
-									width: 100%;
-									box-sizing: border-box;
-									padding: 1.5em 0.5em;
-									pointer-events: none;
-									opacity: 0;
-									animation-fill-mode: forwards;
-									animation-duration: 2s;
-									animation-timing-function: ease;
-								}
-
-								@keyframes tooltip {
-									0% {
-										opacity: 0;
-									}
-
-									10% {
-										opacity: 1;
-									}
-
-									90% {
-										opacity: 1;
-									}
-
-									100% {
-										opacity: 0;
-									}
-								}
-							}
-						}
-
-						&:hover, &:focus {
-							div.email-inner {
-								label.email-inner-front {
-									color: white;
-									background: #D14557;
-								}
-							}
-						}
-
-						&.toggle {
-							div.email-inner {
-								transform: rotateX(180deg);
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 
@@ -751,93 +601,6 @@ section {
 		border-top: 1px solid #161616;
 		box-shadow: 0 0 5px #161616;
 
-		div.loader {
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 10;
-			width: 100%;
-			height: 100%;
-			background: rgba(0, 0, 0, 0.5);
-			opacity: 0;
-			pointer-events: none;
-			transition: opacity 0.5s ease, background 0.5s ease;
-			text-shadow: 0 0 3px black,
-						 0 0 3px black,
-						 0 0 3px black,
-						 0 0 3px black,
-						 0 0 3px black;
-			color: white;
-
-			div.spinner {
-				display: block;
-				width: 64px;
-				height: 64px;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				position: absolute;
-				opacity: 0;
-				transition: opacity 0.5s ease;
-			}
-
-			div.spinner:after {
-				content: " ";
-				display: block;
-				width: 46px;
-				height: 46px;
-				margin: 1px;
-				border-radius: 50%;
-				border: 5px solid #fff;
-				border-color: #fff transparent #fff transparent;
-				animation: spinner-animation 1.2s linear infinite;
-			}
-
-			div.message {
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				position: absolute;
-				opacity: 0;
-				transition: opacity 0.5s ease;
-				font-size: 1.3em;
-			}
-
-			@keyframes spinner-animation {
-				0% {
-					transform: rotate(0deg);
-				}
-				100% {
-					transform: rotate(360deg);
-				}
-			}
-
-			&.visible {
-				opacity: 1;
-				pointer-events: auto;
-
-				&.loading {
-					div.spinner {
-						opacity: 1;
-					}
-				}
-
-				&.status {
-					div.message {
-						opacity: 1;
-					}
-
-					&.success {
-						background: rgba(0, 255, 0, 0.5);
-					}
-
-					&.error {
-						background: rgba(255, 0, 0, 0.5);
-					}
-				}
-			}
-		}
-
 		div.wrapper {
 			padding: 1em 4em;
 			width: 100%;
@@ -862,209 +625,147 @@ section {
 				}
 			}
 
-			form {
-				text-align: right;
+			div.social {
+				width: 100%;
+				display: flex;
+				border-top: 1px solid lightgrey;
+				padding-top: 0.6em;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
 
-				label {
-					width: 100%;
-					display: block;
-					margin-top: 0.8em;
-					position: relative;
-					text-align: left;
-
-					input {
-						width: 100%;
-						box-sizing: border-box;
-						background: #e8e8e8;
-						padding: 0.5em;
-						font-size: 0.95em;
-						vertical-align: middle;
-						font-family: 'Roboto', sans-serif !important;
-						border: 0px;
-						outline: 2px solid transparent;
-
-						&#name {
-
-						}
-
-						&#email {
-
-						}
-
-						&#topic {
-
-						}
-
-						&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-							color: #888;
-						}
-
-						&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-							color: #888;
-							opacity:  1;
-						}
-
-						&::-moz-placeholder { /* Mozilla Firefox 19+ */
-							color: #888;
-							opacity:  1;
-						}
-
-						&:-ms-input-placeholder { /* Internet Explorer 10-11 */
-							color: #888;
-						}
-
-						&::-ms-input-placeholder { /* Microsoft Edge */
-							color: #888;
-						}
-
-						&::placeholder { /* Most modern browsers support this now. */
-							color: #888;
-						}
-					}
-
-					textarea {
-						width: 100%;
-						min-width: 100%;
-						max-width: 100%;
-						min-height: 2.3em;
-						box-sizing: border-box;
-						background: #e8e8e8;
-						padding: 0.5em;
-						font-size: 0.95em;
-						font-family: 'Roboto', sans-serif !important;
-						border: 0px;
-						display: block;
-						outline: 2px solid transparent;
-
-						&#message {
-
-						}
-
-						&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-							color: #888;
-						}
-
-						&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-							color: #888;
-							opacity:  1;
-						}
-
-						&::-moz-placeholder { /* Mozilla Firefox 19+ */
-							color: #888;
-							opacity:  1;
-						}
-
-						&:-ms-input-placeholder { /* Internet Explorer 10-11 */
-							color: #888;
-						}
-
-						&::-ms-input-placeholder { /* Microsoft Edge */
-							color: #888;
-						}
-
-						&::placeholder { /* Most modern browsers support this now. */
-							color: #888;
-						}
-					}
-
-					.error {
-						outline: 4px solid red;
-					}
+				p {
+					flex: 0 0 auto;
+					margin-right: 0.6em;
 				}
 
-				button {
-					margin-top: 0.8em;
-					padding: 0.5em;
-					font-size: 1em;
-					border: 3px solid white;
-					color: white;
-					background: rgba(0, 0, 0, 0.2);
-					font-family: 'Roboto', sans-serif !important;
-					cursor: pointer;
-					text-transform: uppercase;
-					transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-					font-weight: bold;
+				div.links {
+					flex: 0 0 auto;
+					display: grid;
+					padding: 0.3em;
+					grid-gap: 0.6em;
+					grid-template-columns: 1fr 1fr;
+					grid-template-rows: 1fr 1fr;
 
+					a:not(.email) {
+						display: block;
+						padding: 1.5em 1.7em;
+						background: white;
+						box-shadow: 0 0 5px lightgrey;
+						transition: 0.2s ease background, 0.2s ease color;
+						text-align: center;
+						color: black;
+						text-decoration: none;
+						cursor: pointer;
 
-					span.arrows {
-						width: 18px;
-						position: relative;
-						display: inline-block;
-						transform: rotate(270deg);
-						vertical-align: middle;
-						margin-top: -2px;
+						&:hover, &:focus {
+							color: white;
+							background: #D14557;
+						}
+					}
 
-						&:before, &:after {
-							content: '';
-							display: block;
+					a.email {
+						perspective: 1000px;
+						display: block;
+
+						div.email-inner {
 							position: relative;
-							border-bottom: 2px solid;
-							border-right: 2px solid;
-							transform: rotate(45deg);
-							width: 8px;
-							height: 8px;
-							margin-left: 4px;
-							margin-top: -4px;
-						}
-
-						&:after {
-							margin-top: -2px;
-						}
-					}
-
-					span.cross {
-						width: 16px;
-						height: 16px;
-						position: relative;
-						display: inline-block;
-						transform: rotate(270deg);
-						vertical-align: middle;
-						margin-top: -3px;
-
-						&:before, &:after {
-							content: '';
+							width: 100%;
+							height: 100%;
+							text-align: center;
+							transition: transform 0.8s;
+							transform-style: preserve-3d;
 							display: block;
-							position: absolute;
-							border-bottom: 2px solid;
-							transform: rotate(45deg);
-							width: 18px;
-							height: 0;
-							top: 0;
-							left: 0;
-							margin-top: 7px;
-							margin-left: -1px;
-						}
+							background: white;
+							box-sizing: border-box;
+							text-align: center;
+							color: black;
+							text-decoration: none;
 
-						&:after {
-							transform: rotate(-45deg);
-						}
-					}
 
-					&[type="reset"] {
-						border-color: #ff3232;
+							label.email-inner-front {
+								position: absolute;
+								width: 100%;
+								height: 100%;
+								backface-visibility: hidden;
+								background: white;
+								color: black;
+								padding: 1.5em;
+								box-sizing: border-box;
+								box-shadow: 0 0 5px lightgrey;
+								cursor: pointer;
+								display: block;
+							}
+
+							div.email-inner-back {
+								position: absolute;
+								width: 100%;
+								height: 100%;
+								backface-visibility: hidden;
+								background-color: #D14557;
+								color: white;
+								transform: rotateX(180deg);
+								padding: 1.5em 0.5em;
+								box-sizing: border-box;
+
+								input {
+									width: 100%;
+									border: none;
+									padding: 0.1em;
+									font-family: inherit;
+									font-size: 1em;
+								}
+
+								div.tooltip {
+									content: 'Email kopierad.';
+									display: block;
+									position: absolute;
+									background: rgba(50, 50, 50, 0.8);
+									bottom: 0;
+									left: 0;
+									width: 100%;
+									box-sizing: border-box;
+									padding: 1.5em 0.5em;
+									pointer-events: none;
+									opacity: 0;
+									animation-fill-mode: forwards;
+									animation-duration: 2s;
+									animation-timing-function: ease;
+								}
+
+								@keyframes tooltip {
+									0% {
+										opacity: 0;
+									}
+
+									10% {
+										opacity: 1;
+									}
+
+									90% {
+										opacity: 1;
+									}
+
+									100% {
+										opacity: 0;
+									}
+								}
+							}
+						}
 
 						&:hover, &:focus {
-							border-color: #ff0000;
-							background: #ff0000;
+							div.email-inner {
+								label.email-inner-front {
+									color: white;
+									background: #D14557;
+								}
+							}
 						}
 
-						&:active {
-							border-color: #cc0000;
-							background: #cc0000;
-						}
-					}
-
-					&[type="submit"] {
-						border-color: #329932;
-
-						&:hover, &:focus {
-							border-color: #008000;
-							background: #008000;
-						}
-
-						&:active {
-							border-color: #006600;
-							background: #006600;
+						&.toggle {
+							div.email-inner {
+								transform: rotateX(180deg);
+							}
 						}
 					}
 				}
@@ -1202,30 +903,10 @@ section {
 							div.image {
 								position: relative;
 								width: 100%;
-
-								img {
-
-								}	
 							}
 
 							div.information {
 								flex-basis: 100%;
-
-								header {
-									h1 {
-
-									}
-								}
-
-								p {
-
-								}
-
-								div.button {
-									a {
-									
-									}
-								}
 							}
 						}
 					}
@@ -1239,14 +920,6 @@ section {
 
 						span.arrows {
 							display: none;
-						}
-
-						&:hover, &:focus {
-
-						}
-
-						&:active {
-
 						}
 					}
 				}
@@ -1265,49 +938,6 @@ section {
 			div.wrapper {
 				padding: 1em 0;
 				width: 90%;
-
-				h2 {
-
-				}
-
-				p {
-					a {
-
-					}
-				}
-
-				form {
-					label {
-						input {
-							&#name {
-
-							}
-
-							&#email {
-
-							}
-
-							&#topic {
-
-							}
-						}
-
-						textarea {
-							&#message {
-
-							}
-						}
-
-						.error {
-
-						}
-					}
-
-					button {
-						display: block;
-						width: 100%;
-					}
-				}
 			}
 		}
 	}
