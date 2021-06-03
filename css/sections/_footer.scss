@@ -1,0 +1,54 @@
+footer {
+	background: #0d0d0d;
+	color: #fff;
+	position: relative;
+	box-shadow: unset;
+	border-top: 5px solid #146AFF;
+	z-index: 100;
+
+	section.banner {
+		background: unset;
+
+		div.wrapper {
+			background: unset;
+			text-align: center;
+			padding: 1em;
+
+			img {
+				display: block;
+				height: 96px;
+				margin: auto;
+				opacity: 0.5;
+				transition: opacity 0.5s linear;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			div.social {
+				margin-top: 1em;
+
+				a {
+					display: inline-block;
+					margin: 0 0.5em;
+					color: lightgrey;
+
+					img {
+
+					}
+
+					&:hover {
+						color: darkgrey;
+					}
+				}
+			}
+
+			p {
+				font-size: 1.25em;
+				color: lightgrey;
+				margin-top: 2em;
+			}
+		}	
+	}
+}

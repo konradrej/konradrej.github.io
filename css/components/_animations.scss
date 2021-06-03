@@ -1,0 +1,77 @@
+@keyframes hightlight {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+@keyframes float {
+	0% {
+		opacity: 0;
+		top: 40%;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+		top: 32.5%;
+	}
+}
+
+@keyframes scroll-arrow-1 {
+	0% {
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	55% {
+		opacity: 1;
+	}
+
+	85% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes scroll-arrow-2 {
+	0% {
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	65% {
+		opacity: 1;
+	}
+
+	95% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

@@ -1,0 +1,1463 @@
+html, body {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes hightlight {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes float {
+  0% {
+    opacity: 0;
+    top: 40%;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    top: 32.5%;
+  }
+}
+@keyframes scroll-arrow-1 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes scroll-arrow-2 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+body > header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 200;
+  border-bottom: 1px solid lightgrey;
+}
+body > header div.location {
+  height: 5px;
+  width: 0%;
+  background: #D14557;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+body > header div.wrapper {
+  width: 100%;
+  align-items: center;
+  margin: auto;
+  position: relative;
+}
+body > header div.wrapper div.brandingbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 0;
+  padding: 0.6em;
+}
+body > header div.wrapper div.brandingbar a.logo {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+}
+body > header div.wrapper div.brandingbar a.logo img {
+  transform-origin: 0 0;
+  transform: scale(1.5);
+  will-change: transform;
+  height: 4em;
+  display: block;
+  transition: transform 0.3s;
+}
+body > header div.wrapper input.toggle--checkbox {
+  width: 0;
+  height: 0;
+  display: none;
+}
+body > header div.wrapper div.toggle--wrapper {
+  display: none;
+}
+body > header div.wrapper label.toggle--container {
+  display: none;
+  width: 50px;
+  height: 4px;
+  padding: 20px 0;
+  cursor: pointer;
+  z-index: 210;
+  position: absolute;
+  top: 0.6em;
+  right: 1.5em;
+  user-select: none;
+}
+body > header div.wrapper label.toggle--container div.menu--toggle {
+  width: 50px;
+  height: 4px;
+  background: black;
+  transition: 0.25s;
+}
+body > header div.wrapper label.toggle--container div.menu--toggle:before {
+  width: 50px;
+  height: 4px;
+  background: black;
+  content: "";
+  top: -12px;
+  display: block;
+  position: relative;
+  transition: 0.25s;
+}
+body > header div.wrapper label.toggle--container div.menu--toggle:after {
+  width: 50px;
+  height: 4px;
+  background: black;
+  content: "";
+  top: 8px;
+  display: block;
+  position: relative;
+  transition: 0.25s;
+}
+body > header div.wrapper nav.navbar {
+  height: 100%;
+  user-select: none;
+  width: 100%;
+}
+body > header div.wrapper nav.navbar ul {
+  padding: 0;
+  padding-right: 0.5em;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  height: 5.1875em;
+}
+body > header div.wrapper nav.navbar ul li.link--container {
+  background: white;
+}
+body > header div.wrapper nav.navbar ul li.link--container a.link {
+  color: black;
+  display: block;
+  font-size: 1.5em;
+  padding: 0.5em;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+body > header div.wrapper nav.navbar ul li.link--container a.link:focus, body > header div.wrapper nav.navbar ul li.link--container a.link:hover {
+  background: #D14557;
+  color: white;
+}
+body > header div.wrapper nav.navbar ul li.link--container a.link:active {
+  background: #a73745;
+}
+body > header div.wrapper label#toggle--overlay {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  html, body {
+    font-size: calc(11.2px + 0.4vw);
+  }
+  html header div.wrapper, body header div.wrapper {
+    min-width: 1200px;
+    width: 65%;
+  }
+}
+@media (max-width: 635px) {
+  body header div.wrapper {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+  }
+  body header div.wrapper div.brandingbar {
+    width: 100%;
+    position: relative;
+    z-index: 210;
+    background: white;
+  }
+  body header div.wrapper input#toggle--checkbox:checked ~ div.toggle--wrapper label.toggle--container div.menu--toggle {
+    background: transparent;
+  }
+  body header div.wrapper input#toggle--checkbox:checked ~ div.toggle--wrapper label.toggle--container div.menu--toggle:before {
+    transform: rotate(45deg) translate3d(8px, 9px, 0);
+    will-change: transform;
+  }
+  body header div.wrapper input#toggle--checkbox:checked ~ div.toggle--wrapper label.toggle--container div.menu--toggle:after {
+    transform: rotate(-45deg) translate3d(8px, -9px, 0);
+    will-change: transform;
+  }
+  body header div.wrapper input#toggle--checkbox:checked ~ nav.navbar {
+    transform: translate3d(-100%, 0, 0);
+  }
+  body header div.wrapper input#toggle--checkbox:checked ~ label#toggle--overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+  body header div.wrapper div.toggle--wrapper {
+    background: white;
+    height: 100%;
+    z-index: 210;
+    display: flex;
+    align-items: center;
+    padding: 0.6em 0.9em;
+    box-sizing: border-box;
+  }
+  body header div.wrapper div.toggle--wrapper label#toggle--container {
+    display: block;
+    position: static;
+  }
+  body header div.wrapper nav.navbar {
+    z-index: 210;
+    width: 65%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -70%;
+    background: #448cff;
+    box-sizing: border-box;
+    margin-top: 5.261875em;
+    transition: transform 0.5s;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+  }
+  body header div.wrapper nav.navbar ul {
+    display: block;
+    padding: 0;
+  }
+  body header div.wrapper nav.navbar ul li.link--container {
+    width: 100%;
+    background: unset;
+    border-bottom: 1px solid white;
+  }
+  body header div.wrapper nav.navbar ul li.link--container a.link {
+    background: unset;
+    color: white;
+  }
+  body header div.wrapper nav.navbar ul li.link--container a.link:focus, body header div.wrapper nav.navbar ul li.link--container a.link:hover {
+    background: #D14557;
+  }
+  body header div.wrapper nav.navbar ul li.link--container a.link:active {
+    background: #a73745;
+  }
+  body header div.wrapper label#toggle--overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    will-change: opacity;
+  }
+  body header div.wrapper label#toggle--overlay div.overlay--toggle {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+section {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  background: url("../images/funky-lines.png");
+}
+section div.wrapper {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+  background: white;
+}
+section.cover {
+  height: 100vh;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 100;
+  position: relative;
+}
+section.content {
+  padding: 0;
+  z-index: 1;
+  position: relative;
+}
+section.content div.wrapper {
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  padding: 3.5vw;
+  box-shadow: 0 0 10px lightgrey;
+  width: 98%;
+}
+section.banner {
+  background-size: initial;
+  background-position: 50% 50%;
+  background-image: url("../images/noise.png");
+  background-color: #000;
+  z-index: 100;
+  position: relative;
+}
+section#landing {
+  background-image: url("../images/background.jpg");
+  box-shadow: 0 0 5px #0f2329;
+  min-height: 100vh;
+  height: min-content;
+  padding: 0 0.5em;
+}
+section#landing div.wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 5.1875em minmax(min-content, 1fr) 100px;
+  grid-gap: 1em;
+  background: none;
+}
+section#landing div.wrapper:before {
+  display: block;
+  content: "";
+}
+section#landing div.wrapper div.landing--info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  text-align: center;
+  animation-name: float;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  opacity: 0;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
+}
+section#landing div.wrapper div.landing--info h1 {
+  font-size: 3.6em;
+  margin: 0;
+  max-width: 731px;
+}
+section#landing div.wrapper div.landing--info h1 strong.highlight {
+  position: relative;
+  padding: 0 8px;
+  display: inline-block;
+}
+section#landing div.wrapper div.landing--info h1 strong.highlight:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(220, 48, 71, 0.8);
+  animation-name: hightlight;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  animation-delay: 2.2s;
+}
+section#landing div.wrapper div.landing--info h1 strong.highlight::selection {
+  background: #146AFF;
+  color: white;
+}
+section#landing div.wrapper div.landing--info h1 strong.highlight::-moz-selection {
+  background: #146AFF;
+  color: white;
+}
+section#landing div.wrapper div.landing--info p {
+  font-size: 2em;
+  margin: 0;
+  line-height: 1.875rem;
+  max-width: 731px;
+}
+section#landing div.wrapper div.landing--info *::selection {
+  background: rgba(220, 48, 71, 0.8);
+  color: white;
+}
+section#landing div.wrapper div.landing--info *::-moz-selection {
+  background: rgba(220, 48, 71, 0.8);
+  color: white;
+}
+section#landing div.wrapper div.scroll {
+  text-align: center;
+}
+section#landing div.wrapper div.scroll a {
+  display: inline-block;
+  margin: auto;
+  padding: 0.8em;
+}
+section#landing div.wrapper div.scroll a div.scroll-arrow {
+  margin: auto;
+  width: 13px;
+  position: relative;
+}
+section#landing div.wrapper div.scroll a div.scroll-arrow:before, section#landing div.wrapper div.scroll a div.scroll-arrow:after {
+  content: "";
+  display: block;
+  position: relative;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+  animation-name: scroll-arrow-1;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+section#landing div.wrapper div.scroll a div.scroll-arrow:after {
+  margin-top: -4px;
+  animation-name: scroll-arrow-2;
+}
+section#about-me div.wrapper {
+  justify-content: space-between;
+  align-items: center;
+}
+section#about-me div.wrapper div.info {
+  width: 100%;
+  display: grid;
+  grid-column-gap: 1em;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: auto 30%;
+  grid-template-areas: "heading photo" "content photo" "subheading photo" "tldr photo";
+  margin-bottom: 1em;
+}
+section#about-me div.wrapper div.info picture {
+  width: 100%;
+  border-radius: 100%;
+  grid-area: photo;
+  align-self: center;
+}
+section#about-me div.wrapper div.info picture img {
+  width: 100%;
+  box-shadow: 0 0 5px lightgrey;
+  border-radius: 100%;
+  grid-area: photo;
+  align-self: center;
+}
+section#about-me div.wrapper div.info h2 {
+  margin: 0;
+  grid-area: heading;
+}
+section#about-me div.wrapper div.info p {
+  margin: 0.6em 0;
+  grid-area: content;
+}
+section#about-me div.wrapper div.info h3 {
+  grid-area: subheading;
+  margin: 0.6em 0 0;
+}
+section#about-me div.wrapper div.info ul {
+  grid-area: tldr;
+  margin: 0.6em 0;
+}
+section#about-me div.wrapper div.social {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid lightgrey;
+  padding-top: 0.6em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+section#about-me div.wrapper div.social p {
+  flex: 0 0 auto;
+  margin-right: 0.6em;
+}
+section#about-me div.wrapper div.social div.links {
+  flex: 0 0 auto;
+  display: grid;
+  padding: 0.3em;
+  grid-gap: 0.6em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+section#about-me div.wrapper div.social div.links a:not(.email) {
+  display: block;
+  padding: 1.5em 1.7em;
+  background: white;
+  box-shadow: 0 0 5px lightgrey;
+  transition: 0.2s ease background, 0.2s ease color;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+section#about-me div.wrapper div.social div.links a:not(.email):hover, section#about-me div.wrapper div.social div.links a:not(.email):focus {
+  color: white;
+  background: #D14557;
+}
+section#about-me div.wrapper div.social div.links a.email {
+  perspective: 1000px;
+  display: block;
+}
+section#about-me div.wrapper div.social div.links a.email div.email-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  display: block;
+  background: white;
+  box-sizing: border-box;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+section#about-me div.wrapper div.social div.links a.email div.email-inner label.email-inner-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: white;
+  color: black;
+  padding: 1.5em;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px lightgrey;
+  cursor: pointer;
+  display: block;
+}
+section#about-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: #D14557;
+  color: white;
+  transform: rotateX(180deg);
+  padding: 1.5em 0.5em;
+  box-sizing: border-box;
+}
+section#about-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back input {
+  width: 100%;
+  border: none;
+  padding: 0.1em;
+  font-family: inherit;
+  font-size: 1em;
+}
+section#about-me div.wrapper div.social div.links a.email div.email-inner div.email-inner-back div.tooltip {
+  content: "Email kopierad.";
+  display: block;
+  position: absolute;
+  background: rgba(50, 50, 50, 0.8);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.5em 0.5em;
+  pointer-events: none;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+@keyframes tooltip {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+section#about-me div.wrapper div.social div.links a.email:hover div.email-inner label.email-inner-front, section#about-me div.wrapper div.social div.links a.email:focus div.email-inner label.email-inner-front {
+  color: white;
+  background: #D14557;
+}
+section#about-me div.wrapper div.social div.links a.email.toggle div.email-inner {
+  transform: rotateX(180deg);
+}
+section#projects {
+  height: 42.5vw;
+  max-height: 481.95px;
+  overflow: hidden;
+  border-top: 1px solid #353535;
+  border-right: 1px solid #353535;
+  box-shadow: 0 0 5px #353535;
+}
+section#projects div.wrapper {
+  max-width: 1100px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  background: none;
+}
+section#projects div.wrapper div.container--info {
+  padding: 0.5em;
+  position: absolute;
+  width: 30%;
+  left: 0;
+  top: 50%;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 0.7s;
+  animation-timing-function: ease;
+  animation-name: load-info;
+  opacity: 0;
+  color: white;
+  transform: translate3d(0, -50%, 0);
+}
+section#projects div.wrapper div.container--info {
+  font-size: 15.4px;
+}
+@media screen and (min-width: 620px) {
+  section#projects div.wrapper div.container--info {
+    font-size: calc(15.4px + 2.1 * ((100vw - 620px) / 580));
+  }
+}
+@media screen and (min-width: 1200px) {
+  section#projects div.wrapper div.container--info {
+    font-size: 17.5px;
+  }
+}
+section#projects div.wrapper div.container--info h1 {
+  margin: 0;
+}
+section#projects div.wrapper div.container--info p {
+  margin: 0.5em 0;
+}
+section#projects div.wrapper div.container--info div {
+  text-align: right;
+}
+section#projects div.wrapper div.container--info div a {
+  color: lightgrey;
+}
+section#projects div.wrapper div.container--info div a:hover {
+  color: darkgrey;
+}
+section#projects div.wrapper div.container--desktop {
+  width: 50%;
+  position: absolute;
+  box-shadow: 0 0 20px black;
+  right: 0.5em;
+  top: 80%;
+  animation-fill-mode: forwards;
+  animation-duration: 1.7s;
+  animation-timing-function: ease;
+  animation-name: load-desktop;
+  opacity: 0;
+}
+section#projects div.wrapper div.container--mobile {
+  position: absolute;
+  width: 35vw;
+  max-width: 386px;
+  height: 70vw;
+  max-height: 772px;
+  padding: 1.71% 2.33%;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  transform: scale(0.5);
+  top: 80%;
+  left: 40%;
+  animation-fill-mode: forwards;
+  animation-duration: 1.7s;
+  animation-timing-function: ease;
+  animation-name: load-mobile;
+  opacity: 0;
+}
+section#projects div.wrapper div.container--mobile div.container--viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+section#projects div.wrapper div.container--mobile div.container--viewport img {
+  width: 100%;
+}
+section#projects div.wrapper div.container--mobile img.frame {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+section#projects div.wrapper img {
+  width: 100%;
+  display: block;
+}
+@keyframes load-desktop {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-75%);
+  }
+}
+@keyframes load-info {
+  0% {
+    opacity: 0;
+    top: 60%;
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+@keyframes load-mobile {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0.5) translateY(-40%);
+  }
+}
+section#featured div.wrapper {
+  text-align: center;
+}
+section#featured div.wrapper > ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+section#featured div.wrapper > ul > li {
+  margin-bottom: 1.75vw;
+  box-shadow: 0 0 5px 2px lightgrey;
+  overflow: auto;
+  transform: scale(1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+section#featured div.wrapper > ul > li article.project-item {
+  display: flex;
+}
+section#featured div.wrapper > ul > li article.project-item div.image-area {
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center top;
+  min-height: 25vh;
+  height: auto;
+  filter: blur(5px);
+}
+section#featured div.wrapper > ul > li article.project-item div.image {
+  position: absolute;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+section#featured div.wrapper > ul > li article.project-item div.image img {
+  width: 100%;
+  display: block;
+}
+section#featured div.wrapper > ul > li article.project-item div.information {
+  background: white;
+  flex: 0 0 60%;
+  box-sizing: border-box;
+  padding: 1em;
+  z-index: 99999999;
+}
+section#featured div.wrapper > ul > li article.project-item div.information header {
+  position: initial;
+  text-align: left;
+  flex: 0 0 auto;
+  border-bottom: 1px solid lightgrey;
+}
+section#featured div.wrapper > ul > li article.project-item div.information header h1 {
+  margin: 0 0 0.1em;
+  font-size: 1.5em;
+}
+section#featured div.wrapper > ul > li article.project-item div.information p {
+  margin: 0.3em 0 0;
+  text-align: left;
+  flex: 1 1 auto;
+}
+section#featured div.wrapper > ul > li article.project-item div.information h2 {
+  text-align: left;
+  margin-bottom: 0.2em;
+}
+section#featured div.wrapper > ul > li article.project-item div.information ul {
+  text-align: left;
+}
+section#featured div.wrapper > ul > li article.project-item div.information div.button {
+  flex: 0 0 auto;
+  text-align: right;
+  margin-top: 1em;
+}
+section#featured div.wrapper > ul > li:last-child {
+  margin-bottom: 0;
+}
+section#featured div.wrapper > ul:last-child {
+  margin-bottom: 0;
+}
+section#featured div.wrapper div.button {
+  line-height: 0;
+}
+section#featured div.wrapper div.button a {
+  line-height: normal;
+  color: #146AFF;
+  border: 3px solid #146AFF;
+  padding: 0.375em 1.5em;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  font-weight: bold;
+  overflow: hidden;
+}
+section#featured div.wrapper div.button a span.arrows {
+  width: 18px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(270deg);
+  vertical-align: middle;
+  margin-top: -2px;
+}
+section#featured div.wrapper div.button a span.arrows:before, section#featured div.wrapper div.button a span.arrows:after {
+  content: "";
+  display: block;
+  position: relative;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  margin-top: -4px;
+}
+section#featured div.wrapper div.button a span.arrows:after {
+  margin-top: -2px;
+}
+section#featured div.wrapper div.button a:hover, section#featured div.wrapper div.button a:focus {
+  color: white;
+  border-color: #D14557;
+  background: #D14557;
+}
+section#featured div.wrapper div.button a:active {
+  border-color: #a73745;
+  transition: background 0.2s ease;
+  background: #a73745;
+}
+section#featured div.wrapper > div.button {
+  font-size: 1.3em;
+  margin: 1.75vw auto 0;
+  line-height: normal;
+  color: #146AFF;
+  border: 3px solid #146AFF;
+  padding: 0.375em 1.5em;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  font-weight: bold;
+  overflow: hidden;
+  cursor: pointer;
+}
+section#featured div.wrapper > div.button:not(.loaded):hover, section#featured div.wrapper > div.button:not(.loaded):focus {
+  color: white;
+  border-color: #D14557;
+  background: #D14557;
+}
+section#featured div.wrapper > div.button:not(.loaded):active {
+  border-color: #a73745;
+  transition: background 0.2s ease;
+  background: #a73745;
+}
+section#featured div.wrapper > div.button.loaded {
+  border-color: #adcbff;
+  color: #adcbff;
+  cursor: default;
+}
+section#contact-me {
+  position: relative;
+  color: #fff;
+  border-top: 1px solid #161616;
+  box-shadow: 0 0 5px #161616;
+}
+section#contact-me div.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, background 0.5s ease;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
+  color: white;
+}
+section#contact-me div.loader div.spinner {
+  display: block;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+section#contact-me div.loader div.spinner:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: spinner-animation 1.2s linear infinite;
+}
+section#contact-me div.loader div.message {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  font-size: 1.3em;
+}
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+section#contact-me div.loader.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+section#contact-me div.loader.visible.loading div.spinner {
+  opacity: 1;
+}
+section#contact-me div.loader.visible.status div.message {
+  opacity: 1;
+}
+section#contact-me div.loader.visible.status.success {
+  background: rgba(0, 255, 0, 0.5);
+}
+section#contact-me div.loader.visible.status.error {
+  background: rgba(255, 0, 0, 0.5);
+}
+section#contact-me div.wrapper {
+  padding: 1em 4em;
+  width: 100%;
+  max-width: 720px;
+  background: none;
+}
+section#contact-me div.wrapper h2 {
+  margin: 0;
+  padding: 0;
+}
+section#contact-me div.wrapper p {
+  margin: 0;
+  padding: 0;
+}
+section#contact-me div.wrapper p a {
+  color: lightgrey;
+}
+section#contact-me div.wrapper p a:hover {
+  color: darkgrey;
+}
+section#contact-me div.wrapper form {
+  text-align: right;
+}
+section#contact-me div.wrapper form label {
+  width: 100%;
+  display: block;
+  margin-top: 0.8em;
+  position: relative;
+  text-align: left;
+}
+section#contact-me div.wrapper form label input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #e8e8e8;
+  padding: 0.5em;
+  font-size: 0.95em;
+  vertical-align: middle;
+  font-family: "Roboto", sans-serif !important;
+  border: 0px;
+  outline: 2px solid transparent;
+}
+section#contact-me div.wrapper form label input::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #888;
+}
+section#contact-me div.wrapper form label input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #888;
+  opacity: 1;
+}
+section#contact-me div.wrapper form label input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #888;
+  opacity: 1;
+}
+section#contact-me div.wrapper form label input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #888;
+}
+section#contact-me div.wrapper form label input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #888;
+}
+section#contact-me div.wrapper form label input::placeholder {
+  /* Most modern browsers support this now. */
+  color: #888;
+}
+section#contact-me div.wrapper form label textarea {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 2.3em;
+  box-sizing: border-box;
+  background: #e8e8e8;
+  padding: 0.5em;
+  font-size: 0.95em;
+  font-family: "Roboto", sans-serif !important;
+  border: 0px;
+  display: block;
+  outline: 2px solid transparent;
+}
+section#contact-me div.wrapper form label textarea::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #888;
+}
+section#contact-me div.wrapper form label textarea:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #888;
+  opacity: 1;
+}
+section#contact-me div.wrapper form label textarea::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #888;
+  opacity: 1;
+}
+section#contact-me div.wrapper form label textarea:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #888;
+}
+section#contact-me div.wrapper form label textarea::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #888;
+}
+section#contact-me div.wrapper form label textarea::placeholder {
+  /* Most modern browsers support this now. */
+  color: #888;
+}
+section#contact-me div.wrapper form label .error {
+  outline: 4px solid red;
+}
+section#contact-me div.wrapper form button {
+  margin-top: 0.8em;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 3px solid white;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  font-family: "Roboto", sans-serif !important;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-weight: bold;
+}
+section#contact-me div.wrapper form button span.arrows {
+  width: 18px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(270deg);
+  vertical-align: middle;
+  margin-top: -2px;
+}
+section#contact-me div.wrapper form button span.arrows:before, section#contact-me div.wrapper form button span.arrows:after {
+  content: "";
+  display: block;
+  position: relative;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  margin-top: -4px;
+}
+section#contact-me div.wrapper form button span.arrows:after {
+  margin-top: -2px;
+}
+section#contact-me div.wrapper form button span.cross {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(270deg);
+  vertical-align: middle;
+  margin-top: -3px;
+}
+section#contact-me div.wrapper form button span.cross:before, section#contact-me div.wrapper form button span.cross:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: 2px solid;
+  transform: rotate(45deg);
+  width: 18px;
+  height: 0;
+  top: 0;
+  left: 0;
+  margin-top: 7px;
+  margin-left: -1px;
+}
+section#contact-me div.wrapper form button span.cross:after {
+  transform: rotate(-45deg);
+}
+section#contact-me div.wrapper form button[type=reset] {
+  border-color: #ff3232;
+}
+section#contact-me div.wrapper form button[type=reset]:hover, section#contact-me div.wrapper form button[type=reset]:focus {
+  border-color: #ff0000;
+  background: #ff0000;
+}
+section#contact-me div.wrapper form button[type=reset]:active {
+  border-color: #cc0000;
+  background: #cc0000;
+}
+section#contact-me div.wrapper form button[type=submit] {
+  border-color: #329932;
+}
+section#contact-me div.wrapper form button[type=submit]:hover, section#contact-me div.wrapper form button[type=submit]:focus {
+  border-color: #008000;
+  background: #008000;
+}
+section#contact-me div.wrapper form button[type=submit]:active {
+  border-color: #006600;
+  background: #006600;
+}
+
+@media (min-width: 1217px) {
+  section.content div.wrapper {
+    padding: 43px;
+  }
+  section#featured div.wrapper > ul > li {
+    margin-bottom: 21.5px;
+  }
+  section#featured div.wrapper > div.button {
+    margin-top: 21.5px;
+  }
+}
+@media (max-width: 635px) {
+  section#landing div.landing--info {
+    font-size: 0.78em;
+  }
+}
+@media (max-width: 620px) {
+  section#about-me div.wrapper div.info {
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "photo" "heading" "content" "subheading" "tldr";
+    grid-column-gap: 0;
+  }
+  section#about-me div.wrapper div.info picture {
+    width: 35%;
+    justify-self: center;
+  }
+  section#projects {
+    max-height: unset;
+    height: 116vw;
+    padding: 0;
+  }
+  section#projects div.wrapper div.container--info {
+    padding: 0 0.5em;
+    z-index: 10;
+    box-sizing: border-box;
+    width: 90%;
+    height: 36vw;
+    left: 5%;
+    bottom: 5%;
+    top: unset;
+    transform: unset;
+    animation-delay: 0s;
+    animation-duration: 1.7s;
+  }
+  section#projects div.wrapper div.container--info {
+    font-size: 11.9px;
+  }
+}
+@media screen and (max-width: 620px) and (min-width: 300px) {
+  section#projects div.wrapper div.container--info {
+    font-size: calc(11.9px + 13.06 * ((100vw - 300px) / 320));
+  }
+}
+@media screen and (max-width: 620px) and (min-width: 620px) {
+  section#projects div.wrapper div.container--info {
+    font-size: 24.96px;
+  }
+}
+@media (max-width: 620px) {
+  section#projects div.wrapper div.container--desktop {
+    width: 90%;
+    height: calc(68.5vw - 1em);
+    top: 40%;
+    right: 5%;
+    overflow: hidden;
+  }
+}
+@media (max-width: 620px) {
+  section#projects div.wrapper div.container--mobile {
+    display: none;
+  }
+}
+@media (max-width: 620px) {
+  @keyframes load-desktop {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-62%);
+    }
+  }
+}
+@media (max-width: 620px) {
+  @keyframes load-info {
+    0% {
+      opacity: 0;
+      bottom: -30%;
+    }
+    100% {
+      opacity: 1;
+      bottom: 5%;
+    }
+  }
+}
+@media (max-width: 620px) {
+  section#featured div.wrapper ul li article.project-item {
+    flex-direction: column;
+    min-height: none;
+  }
+  section#featured div.wrapper ul li article.project-item div.image-area {
+    display: none;
+  }
+  section#featured div.wrapper ul li article.project-item div.image {
+    position: relative;
+    width: 100%;
+  }
+  section#featured div.wrapper ul li article.project-item div.information {
+    flex-basis: 100%;
+  }
+  section#featured div.wrapper div.button a {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  section#featured div.wrapper div.button a span.arrows {
+    display: none;
+  }
+  section#featured div.wrapper > div.button {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+@media (max-width: 620px) {
+  section#contact-me {
+    padding: 0.5em 0;
+  }
+  section#contact-me div.wrapper {
+    padding: 1em 0;
+    width: 90%;
+  }
+  section#contact-me div.wrapper form button {
+    display: block;
+    width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  section#landing div.landing--info {
+    font-size: 0.68em;
+  }
+}
+@media (max-width: 350px) {
+  section#landing div.landing--info {
+    font-size: 0.55em;
+  }
+}
+footer {
+  background: #0d0d0d;
+  color: #fff;
+  position: relative;
+  box-shadow: unset;
+  border-top: 5px solid #146AFF;
+  z-index: 100;
+}
+footer section.banner {
+  background: unset;
+}
+footer section.banner div.wrapper {
+  background: unset;
+  text-align: center;
+  padding: 1em;
+}
+footer section.banner div.wrapper img {
+  display: block;
+  height: 96px;
+  margin: auto;
+  opacity: 0.5;
+  transition: opacity 0.5s linear;
+}
+footer section.banner div.wrapper img:hover {
+  opacity: 1;
+}
+footer section.banner div.wrapper div.social {
+  margin-top: 1em;
+}
+footer section.banner div.wrapper div.social a {
+  display: inline-block;
+  margin: 0 0.5em;
+  color: lightgrey;
+}
+footer section.banner div.wrapper div.social a:hover {
+  color: darkgrey;
+}
+footer section.banner div.wrapper p {
+  font-size: 1.25em;
+  color: lightgrey;
+  margin-top: 2em;
+}
+
+div.project-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  z-index: 150;
+}
+div.project-container.show {
+  display: block;
+}
+div.project-container div.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+div.project-container div.popup {
+  width: 90%;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px lightgrey;
+}
+div.project-container div.popup div.popup-header {
+  padding: 2em 2em 1.5em;
+  position: relative;
+}
+div.project-container div.popup div.popup-header h2.title {
+  margin: 0;
+}
+div.project-container div.popup div.popup-header button.popup-close {
+  position: absolute;
+  top: 0.75em;
+  right: 0.75em;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0;
+  color: grey;
+}
+div.project-container div.popup div.image-carousel {
+  background: red;
+  position: relative;
+}
+div.project-container div.popup div.image-carousel div.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+div.project-container div.popup div.image-carousel div.carousel-overlay button {
+  background: rgba(0, 0, 0, 0.2);
+  border: 0;
+  width: 15%;
+  height: 100%;
+}
+div.project-container div.popup div.image-carousel div.carousel-overlay button.carousel-left {
+  float: left;
+}
+div.project-container div.popup div.image-carousel div.carousel-overlay button.carousel-right {
+  float: right;
+}
+div.project-container div.popup div.description {
+  padding: 1.5em 2em 2em;
+}
+
+@media (min-width: 1200px) {
+  section div.wrapper {
+    min-width: 1200px;
+    width: 65%;
+  }
+}
+@media (min-width: 1100px) {
+  section.cover div.wrapper {
+    min-width: 1100px;
+    width: 57.5%;
+  }
+  section.content div.wrapper {
+    min-width: 1078px;
+    width: 55.5%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

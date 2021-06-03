@@ -1,0 +1,287 @@
+$headerHeight: 5.1875em;
+
+body > header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: white;
+	z-index: 200;
+	//box-shadow: 0 0 10px lightgrey;
+	border-bottom: 1px solid lightgrey;
+
+	div.location {
+		height: 5px;
+		width: 0%;
+		background: #D14557;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+	}
+
+	div.wrapper {
+		width: 100%;
+		align-items: center;
+		margin: auto;
+		position: relative;
+
+		div.brandingbar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			line-height: 0;
+			padding: 0.6em;
+
+			a.logo {
+				color: black;
+				text-decoration: none;
+				display: inline-block;
+
+				img {
+					transform-origin: 0 0;
+					transform: scale(1.5);
+					will-change: transform;
+					height: 4em;
+					display: block;
+					transition: transform 0.3s;
+				}
+			}
+		}
+
+		input.toggle--checkbox {
+			width: 0;
+			height: 0;
+			display: none;
+		}
+
+		div.toggle--wrapper {
+			display: none;
+		}
+
+		label.toggle--container {
+			display: none;
+			width: 50px;
+			height: 4px;
+			padding: 20px 0;
+			cursor: pointer;
+			z-index: 210;
+			position: absolute;
+			top: 0.6em;
+			right: 1.5em;
+			user-select: none;
+
+			div.menu--toggle {
+				width: 50px;
+				height: 4px;
+				background: black;
+				transition: 0.25s;
+
+				&:before {
+					width: 50px;
+					height: 4px;
+					background: black;
+					content: '';
+					top: -12px;
+					display: block;
+					position: relative;
+					transition: 0.25s;
+				}
+
+				&:after {
+					width: 50px;
+					height: 4px;
+					background: black;
+					content: '';
+					top: 8px;
+					display: block;
+					position: relative;
+					transition: 0.25s;
+				}
+			}
+		}
+
+		nav.navbar {
+			height: 100%;
+			user-select: none;
+			width: 100%;
+			
+			ul {
+				padding: 0;
+				padding-right: 0.5em;
+				list-style-type: none;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				margin: 0;
+				height: $headerHeight;
+
+				li.link--container {
+					background: white;
+
+					a.link {
+						color: black;
+						display: block;
+						font-size: 1.5em;
+						padding: 0.5em;
+						transition: background 0.2s ease, color 0.2s ease;
+						text-decoration: none;
+						cursor: pointer;
+
+						&:focus, &:hover {
+							background: #D14557;
+							color: white;
+						}
+
+						&:active {
+							background: #a73745;
+						}
+					}
+				}
+			}
+		}
+
+		label#toggle--overlay {
+			display: none;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	html, body {
+		font-size: calc(11.2px + 0.4vw);
+
+		header {
+			div.wrapper {
+				min-width: 1200px;
+				width: 65%;
+			}
+		}
+	}
+}
+
+@media (max-width: 635px) {
+	body header {
+		div.wrapper {
+			display: grid;
+			grid-template-columns: 1fr min-content;
+
+			div.brandingbar {
+				width: 100%;
+				position: relative;
+				z-index: 210;
+				background: white;
+			}
+
+			input#toggle--checkbox:checked {
+				& ~ div.toggle--wrapper label.toggle--container div.menu--toggle {
+					background: transparent;
+
+					&:before {
+						transform: rotate(45deg) translate3d(8px, 9px, 0);
+						will-change: transform;
+					}
+
+					&:after {
+						transform: rotate(-45deg) translate3d(8px, -9px, 0);
+						will-change: transform;
+					}
+				}
+
+				& ~ nav.navbar {
+					transform: translate3d(-100%, 0, 0);
+				}
+
+				& ~ label#toggle--overlay {
+					opacity: 1;
+					pointer-events: all;
+				}
+			}
+
+			div.toggle--wrapper {
+				background: white;
+				height: 100%;
+				z-index: 210;
+				display: flex;
+				align-items: center;
+				padding: 0.6em 0.9em;
+				box-sizing: border-box;
+
+				label#toggle--container {
+					display: block;
+					position: static;
+
+					div.menu-toggle {
+						&:before {
+
+						}
+
+						&:after {
+
+						}
+					}
+				}
+			}
+
+			nav.navbar {
+				z-index: 210;
+				width: 65%;
+				min-height: 100vh;
+				position: fixed;
+				top: 0;
+				right: -70%;
+				background: #448cff;
+				box-sizing: border-box;
+				margin-top: 5.261875em;
+
+				transition: transform 0.5s;//, margin-top 0.3s;
+				transform: translate3d(0, 0, 0);
+				will-change: transform;
+
+				ul {
+					display: block;
+					padding: 0;
+
+					li.link--container {
+						width: 100%;
+						background: unset;
+						border-bottom: 1px solid white;
+
+						a.link {
+							background: unset;
+							color: white;
+
+							&:focus, &:hover {
+								background: #D14557;
+							}
+
+							&:active {
+								background: #a73745;
+							}
+						}
+					}
+				}
+			}
+
+			label#toggle--overlay {
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.5s;
+				will-change: opacity;
+
+				div.overlay--toggle {
+					background: rgba(0, 0, 0, 0.5);
+					width: 100%;
+					height: 100%;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
