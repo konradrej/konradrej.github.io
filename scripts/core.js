@@ -29,8 +29,6 @@ var passiveIfSupported = false;
 var totalHeight, locationWidth;
 var logoElement = document.querySelector(".logo img");
 var st = document.getScroll();
-var contactForm = document.querySelector("#contact-me form");
-var inputs = contactForm.querySelectorAll("input, textarea");
 
 //functions
 function loadFeatured(){
@@ -65,16 +63,6 @@ function scrollToAnchor(hash) {
 	}
 }
 
-function formResponse(status, message){
-		document.querySelector("#contact-me .loader").classList.remove("loading");
-		document.querySelector("#contact-me .loader div.message").innerHTML = message;
-		document.querySelector("#contact-me .loader").classList.add("status", status);
-
-		setTimeout(function(){
-			document.querySelector("#contact-me .loader").classList.remove("visible", "status", status);
-		}, 4000);
-}
-
 function adjustScrollIndicator(){
 	locationWidth = st[1]/totalHeight*100;
 	document.querySelector("div.location").style.width = (locationWidth+"%");
@@ -94,67 +82,6 @@ window.onresize = function(){
 
 	adjustScrollIndicator();
 }
-
-for(var i = 0; i < inputs.length; i++){
-	inputs[i].oninput = function(){
-		this.classList.remove("error");
-	}
-}
-
-contactForm.onsubmit = function(event){
-	event.preventDefault();
-
-	var isValid = true;
-	if(!this.elements["name"].value){
-		this.elements["name"].classList.add("error");
-		isValid = false;
-	}
-	if(!this.elements["email"].value){
-		this.elements["email"].classList.add("error");
-		isValid = false;
-	}
-	if(!this.elements["topic"].value){
-		this.elements["topic"].classList.add("error");
-		isValid = false;
-	}
-	if(!this.elements["message"].value){
-		this.elements["message"].classList.add("error");
-		isValid = false;
-	}
-	if(!isValid){
-		return false;
-	}
-
-	document.querySelector("#contact-me .loader").classList.add("visible", "loading");
-	if(navigator.onLine){
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function(){
-			if(this.readyState == 4 && this.status == 200){
-				var data = JSON.parse(this.responseText);
-				formResponse(data["status"], data["message"]);
-
-				if(data["status"] == "success"){
-					contactForm.reset();
-				}else if(data["status"] == "error"){
-					data["issues"].forEach(function(value){
-						document.getElementsByName(value["field"])[0].classList.add("error");
-					});
-				}
-			}else if(this.readyState == 4 && this.status != 200){
-				formResponse("error", "Meddelandet kunde inte skickas, server error.");
-			}
-		}
-
-		var data = "name="+this.elements["name"].value+"&email="+this.elements["email"].value+"&topic="+this.elements["topic"].value+"&message="+this.elements["message"].value;
-		var readyData = encodeURI(data);
-
-		xhttp.open("POST", "./message.php", true);
-		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhttp.send(readyData);
-	}else{
-		formResponse("error", "Meddelandet kunde inte skickas för du är offline.");
-	}
-};
 
 document.querySelectorAll("a[href*=\\#]:not([href=\\#])").forEach(function(el){
 		el.addEventListener('click', function(event){
