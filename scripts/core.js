@@ -85,7 +85,7 @@ window.onresize = function(){
 
 document.querySelectorAll("a[href*=\\#]:not([href=\\#])").forEach(function(el){
 		el.addEventListener('click', function(event){
-			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname){
+			if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname){
 				event.preventDefault();
 
 				scrollToAnchor(this.hash);
@@ -106,17 +106,17 @@ document.querySelectorAll("a[href*=\\#]:not([href=\\#])").forEach(function(el){
 	adjustScrollIndicator();
 	adjustLogo(st[1]);
 
-	if ( "onhashchange" in window ) {
+	if("onhashchange" in window) {
 	    var hashHandler = function(){
 	        var hash = window.location.hash.substring( 1 );
-	        if ( !hash )
+	        if(!hash)
 	            return;
 
 	        var offset = 83;
 	        var sel = '[id="' + hash + '"], a[name="' + hash + '"]';
-	        var currentOffset = $( sel ).offset().top;
+	        var currentOffset = $(sel).offset().top;
 
-	        $( window ).scrollTop( currentOffset - offset );
+	        $(window).scrollTop(currentOffset - offset);
 	    };
 	    window.addEventListener("hashchange", hashHandler, false);
 	    window.addEventListener("load", hashHandler, false);
@@ -134,3 +134,35 @@ if("serviceWorker" in navigator){
 		});
 	});
 }
+
+function selectText() {
+    var element = event.target
+    var range;
+    if(document.selection) {
+        // IE
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    }else if(window.getSelection) {
+        range = document.createRange();
+        range.selectNode(element);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
+
+function deSelectText(){
+	if(window.getSelection) {
+		window.getSelection().removeAllRanges();
+	}else if(document.selection) {
+		document.selection.empty();
+	}
+}
+
+function copyText() {
+    selectText();
+    document.execCommand("copy");
+    deSelectText();
+}
+
+$("#social-grid .circle.email").on("click", copyText);
