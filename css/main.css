@@ -16,14 +16,32 @@ html, body {
 @keyframes float {
   0% {
     opacity: 0;
-    top: 40%;
   }
   80% {
     opacity: 1;
   }
   100% {
     opacity: 1;
-    top: 32.5%;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes scroll-arrow-1 {
@@ -412,7 +430,6 @@ section#landing div.wrapper div.landing--info h1 strong.highlight:before {
   z-index: -1;
   top: 0;
   left: 0;
-  width: 0;
   height: 100%;
   background: rgba(220, 48, 71, 0.8);
   animation-name: hightlight;
@@ -465,14 +482,14 @@ section#landing div.wrapper div.scroll a div.scroll-arrow:before, section#landin
   transform: rotate(45deg);
   width: 10px;
   height: 10px;
-  animation-name: scroll-arrow-1;
-  animation-duration: 3s;
+  animation-name: blink;
+  animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 section#landing div.wrapper div.scroll a div.scroll-arrow:after {
   margin-top: -4px;
-  animation-name: scroll-arrow-2;
+  animation-delay: 0.25s;
 }
 section#about-me div.wrapper {
   justify-content: space-between;
