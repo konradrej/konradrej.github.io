@@ -163,6 +163,18 @@ function copyText() {
     selectText();
     document.execCommand("copy");
     deSelectText();
+
+    showToast("Email has been copied.");
 }
 
 $("#social-grid .circle.email").on("click", copyText);
+
+function showToast(message){
+	event.preventDefault();
+
+	$toast = $('<div class="toast"></div>').text(message);
+	$toastWrapper = $('<div class="toast-wrapper"></div>').html($toast).hide();
+
+	$('body').append($toastWrapper);
+	$toastWrapper.fadeIn(1000).delay(3000).fadeOut(1000);
+}
