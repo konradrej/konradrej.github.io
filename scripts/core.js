@@ -29,8 +29,6 @@ var passiveIfSupported = false;
 var totalHeight, locationWidth;
 var logoElement = document.querySelector(".logo img");
 var st = document.getScroll();
-var contactForm = document.querySelector("#contact-me form");
-var inputs = contactForm.querySelectorAll("input, textarea");
 
 //functions
 function loadFeatured(){
@@ -65,16 +63,6 @@ function scrollToAnchor(hash) {
 	}
 }
 
-function formResponse(status, message){
-		document.querySelector("#contact-me .loader").classList.remove("loading");
-		document.querySelector("#contact-me .loader div.message").innerHTML = message;
-		document.querySelector("#contact-me .loader").classList.add("status", status);
-
-		setTimeout(function(){
-			document.querySelector("#contact-me .loader").classList.remove("visible", "status", status);
-		}, 4000);
-}
-
 function adjustScrollIndicator(){
 	locationWidth = st[1]/totalHeight*100;
 	document.querySelector("div.location").style.width = (locationWidth+"%");
@@ -95,70 +83,9 @@ window.onresize = function(){
 	adjustScrollIndicator();
 }
 
-for(var i = 0; i < inputs.length; i++){
-	inputs[i].oninput = function(){
-		this.classList.remove("error");
-	}
-}
-
-contactForm.onsubmit = function(event){
-	event.preventDefault();
-
-	var isValid = true;
-	if(!this.elements["name"].value){
-		this.elements["name"].classList.add("error");
-		isValid = false;
-	}
-	if(!this.elements["email"].value){
-		this.elements["email"].classList.add("error");
-		isValid = false;
-	}
-	if(!this.elements["topic"].value){
-		this.elements["topic"].classList.add("error");
-		isValid = false;
-	}
-	if(!this.elements["message"].value){
-		this.elements["message"].classList.add("error");
-		isValid = false;
-	}
-	if(!isValid){
-		return false;
-	}
-
-	document.querySelector("#contact-me .loader").classList.add("visible", "loading");
-	if(navigator.onLine){
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function(){
-			if(this.readyState == 4 && this.status == 200){
-				var data = JSON.parse(this.responseText);
-				formResponse(data["status"], data["message"]);
-
-				if(data["status"] == "success"){
-					contactForm.reset();
-				}else if(data["status"] == "error"){
-					data["issues"].forEach(function(value){
-						document.getElementsByName(value["field"])[0].classList.add("error");
-					});
-				}
-			}else if(this.readyState == 4 && this.status != 200){
-				formResponse("error", "Meddelandet kunde inte skickas, server error.");
-			}
-		}
-
-		var data = "name="+this.elements["name"].value+"&email="+this.elements["email"].value+"&topic="+this.elements["topic"].value+"&message="+this.elements["message"].value;
-		var readyData = encodeURI(data);
-
-		xhttp.open("POST", "./message.php", true);
-		xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhttp.send(readyData);
-	}else{
-		formResponse("error", "Meddelandet kunde inte skickas för du är offline.");
-	}
-};
-
 document.querySelectorAll("a[href*=\\#]:not([href=\\#])").forEach(function(el){
 		el.addEventListener('click', function(event){
-			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname){
+			if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname){
 				event.preventDefault();
 
 				scrollToAnchor(this.hash);
@@ -179,17 +106,17 @@ document.querySelectorAll("a[href*=\\#]:not([href=\\#])").forEach(function(el){
 	adjustScrollIndicator();
 	adjustLogo(st[1]);
 
-	if ( "onhashchange" in window ) {
+	if("onhashchange" in window) {
 	    var hashHandler = function(){
 	        var hash = window.location.hash.substring( 1 );
-	        if ( !hash )
+	        if(!hash)
 	            return;
 
 	        var offset = 83;
 	        var sel = '[id="' + hash + '"], a[name="' + hash + '"]';
-	        var currentOffset = $( sel ).offset().top;
+	        var currentOffset = $(sel).offset().top;
 
-	        $( window ).scrollTop( currentOffset - offset );
+	        $(window).scrollTop(currentOffset - offset);
 	    };
 	    window.addEventListener("hashchange", hashHandler, false);
 	    window.addEventListener("load", hashHandler, false);
@@ -206,4 +133,48 @@ if("serviceWorker" in navigator){
 			console.log("ServiceWorker registration failed: ", err);
 		});
 	});
+}
+
+function selectText() {
+    var element = event.target
+    var range;
+    if(document.selection) {
+        // IE
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    }else if(window.getSelection) {
+        range = document.createRange();
+        range.selectNode(element);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
+
+function deSelectText(){
+	if(window.getSelection) {
+		window.getSelection().removeAllRanges();
+	}else if(document.selection) {
+		document.selection.empty();
+	}
+}
+
+function copyText() {
+    selectText();
+    document.execCommand("copy");
+    deSelectText();
+
+    showToast("Email has been copied.");
+}
+
+$("#social-grid .circle.email a").on("click", copyText);
+
+function showToast(message){
+	event.preventDefault();
+
+	$toast = $('<div class="toast"></div>').text(message);
+	$toastWrapper = $('<div class="toast-wrapper"></div>').html($toast).hide();
+
+	$('body').append($toastWrapper);
+	$toastWrapper.fadeIn(1000).delay(3000).fadeOut(1000);
 }

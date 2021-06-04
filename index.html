@@ -17,6 +17,7 @@
 	<meta name="theme-color" content="#146aff">
 
 	<link href="./css/main.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -81,29 +82,6 @@
 						<li>Chalmers student</li>
 					</ul>
 				</div>
-				<div class="social">
-					<p>
-						Du kan nå mig här
-					</p>
-					<div class="links">
-						<a href="https://github.com/konradrej" rel="noreferrer" target="_blank">Github</a>
-						<a href="https://www.linkedin.com/in/konrad-rej-908900193" rel="noreferrer" target="_blank">Linkedin</a>
-						<a href="#contact-me">Kontakta mig</a>
-						<a href="mailto:rej.konrad@gmail.com" class="email" onclick="event.preventDefault();this.classList.add('toggle');">
-							<div class="email-inner">
-								<label for="email-button" class="email-inner-front" title="rej.konrad@gmail.com">
-									Email
-								</label>
-								<div class="email-inner-back">
-									<input type="text" id="email-button" value="rej.konrad@gmail.com" onClick="this.select();this.setSelectionRange(0, 99999);document.execCommand('copy');this.nextSibling.nextSibling.style.animationName = 'none';this.nextSibling.nextSibling.offsetHeight;this.nextSibling.nextSibling.style.animationName = 'tooltip';">
-									<div class="tooltip">
-										Email kopierad.
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
 			</div>
 		</section>
 		<section id="projects" class="banner">
@@ -167,57 +145,46 @@
 			</div>
 		</section>
 		<section id="contact-me" class="banner">
-			<div class="loader">
-				<div class="spinner"></div>
-				<div class="message"></div>
-			</div>
 			<div class="wrapper">
-				<h2>Kontakta mig</h2>
-				<p>
-					Har du frågor så kan du kontakta mig genom formuläret nedan eller genom att mejla mig på <a href="mailto:rej.konrad@gmail.com">rej.konrad@gmail.com</a>
-				</p>
-				<form action="./index.php" method="post">
-					<label>
-						<input id="name" aria-label="Namn" type="text" placeholder="Namn*" name="name" required>
-					</label>
-					<label>
-						<input id="email" aria-label="Email" type="email" placeholder="Email*" name="email" required>
-					</label>
-					<label>
-						<input id="topic" aria-label="Ämne" type="text" placeholder="Ämne*" name="topic" autocomplete="off" required>
-					</label>
-					<label>
-						<textarea id="message" aria-label="Meddelande" placeholder="Meddelande*" name="message" rows="4" autocomplete="off" required></textarea>
-					</label>
-
-					<button type="reset">
-						Återställ <span class="cross"></span>
-					</button>
-					<button type="submit">
-						Skicka <span class="arrows"></span>
-					</button>
-				</form>
+				<div id="social-grid">
+						<div class="circle email">
+							<a href="mailto:rej.konrad@gmail.com">
+								<picture>
+									<source srcset="./images/email-192x144.webp" type="image/webp">
+									<img src="./images/email-192x144.png" alt="rej.konrad@gmail.com">
+								</picture>
+							</a>
+						</div>
+						<div class="circle linkedin">
+							<a href="https://www.linkedin.com/in/konrad-rej" rel="noreferrer" target="_blank">
+								<picture>
+									<source srcset="./images/linkedin-192x192.webp 192w,
+													./images/linkedin-96x96.webp 92w"
+											sizes="(max-width: 620px) 146px,
+													"
+											type="image/webp">
+									<source srcset="./images/linkedin-192x192.png 192w,
+													./images/linkedin-96x96.png 92w"
+											type="image/png">
+									<img src="./images/linkedin-192x192.png" alt="Konrad's Linkedin">
+								</picture>
+							</a>
+						</div>
+						<div class="circle github">
+							<a href="https://github.com/konradrej" rel="noreferrer" target="_blank">
+								<picture>
+									<source srcset="./images/github_footer.webp" type="image/webp">
+									<img src="./images/github_footer.png" alt="Konrad's Github">
+								</picture>
+							</a>
+						</div>
+				</div>
 			</div>
 		</section>
 	</main>
 	<footer>
 		<section class="banner">
 			<div class="wrapper">
-				<div class="social">
-					<a href="https://github.com/konradrej" rel="noreferrer" target="_blank">
-						<picture>
-							<source srcset="./images/github_footer.webp">
-							<img src="./images/github_footer.png" alt="Konrad's Github">
-						</picture>
-					</a>
-					<a href="https://www.linkedin.com/in/konrad-rej-908900193" rel="noreferrer" target="_blank">
-						<picture>
-							<source srcset="./images/linkedin_footer.webp">
-							<img src="./images/linkedin_footer.png" alt="Konrad's Linkedin">
-						</picture>
-					</a>
-				</div>
-
 				<p>Konrad Rej &copy; 2021</p>
 			</div>
 		</section>
@@ -261,7 +228,6 @@
 		</div>
 	</div>
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<script>window.jQuery || document.write('<script src="./scripts/jquery-3.5.1.min.js"><\/script>')</script>
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
