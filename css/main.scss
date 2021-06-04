@@ -7,6 +7,7 @@ html, body {
 
 @import "components/mixins";
 @import "components/animations";
+@import "components/toast";
 @import "sections/header";
 
 section {
@@ -602,11 +603,88 @@ section {
 		box-shadow: 0 0 5px #161616;
 
 		div.wrapper {
-			padding: 1em 4em;
+			//padding: 1em 4em;
+			padding: 1em;
 			width: 100%;
 			max-width: 720px;
 			background: none;
 
+			h2 {
+				margin: 0;
+				padding: 0;
+				text-align: center;
+			}
+
+			div#social-grid {
+				display: flex;
+				padding: 2% 10%;
+					padding: 0;
+				box-sizing: border-box;
+
+				div.column {
+					flex: 0 0 50%;
+
+					div.circle {
+						border-radius: 100%;
+						position: relative;
+						margin-bottom: 30px;
+
+						&.linkedin {
+							background: #D14557;
+							width: 66%;
+						}
+
+						&.github {
+							background: #00CECB;
+							width: 33%;
+							left: 30%;
+						}
+
+						&.email {
+							background: #146AFF;
+							width: 100%;
+
+							a {
+								padding: 13%;
+
+								img {
+									width: 50%;
+									height: 37.5%;
+									margin: 31.25% auto 3%;
+								}
+							}
+						}
+
+						&:after {
+							content: '';
+							display: block;
+							padding-bottom: 100%;
+						}
+
+						a {
+							color: white;
+							text-decoration: none;
+							text-align: center;
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							padding: 23%;
+							box-sizing: border-box;
+							border-radius: 100%;
+							cursor: pointer;
+
+							img {
+								width: 100%;
+								height: 100%;
+								display: block;
+							}
+						}
+					}
+				}
+			}
+
+
+			/*
 			h2 {
 				margin: 0;
 				padding: 0;
@@ -770,6 +848,7 @@ section {
 					}
 				}
 			}
+			*/
 		}
 	}
 }
@@ -792,6 +871,16 @@ section {
 
 				& > div.button {
 					margin-top: 21.5px;
+				}
+			}
+		}
+
+
+		&#contact-me {
+			div.wrapper {
+				div#social-grid {
+					padding: 0;
+				padding: 2% 10%;
 				}
 			}
 		}
@@ -936,8 +1025,38 @@ section {
 			padding: 0.5em 0;
 
 			div.wrapper {
-				padding: 1em 0;
+				//padding: 1em 0;
 				width: 90%;
+
+				h2 {
+					text-align: left;
+				}
+
+				div#social-grid {
+					flex-direction: column-reverse;
+
+					div.column {
+						flex: 0 0 100%;
+
+						div.circle {
+							&.linkedin {
+								margin-top: -15%;
+								width: 55%;
+							}
+
+							&.github {
+								left: 50%;
+								margin-top: -25%;
+								width: 40%;
+							}
+
+							&.email {
+								width: 65%;
+								left: 35%;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
