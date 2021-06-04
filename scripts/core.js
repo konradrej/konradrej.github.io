@@ -167,7 +167,7 @@ function copyText() {
     showToast("Email has been copied.");
 }
 
-$("#social-grid .circle.email").on("click", copyText);
+$("#social-grid .circle.email a").on("click", copyText);
 
 function showToast(message){
 	event.preventDefault();
