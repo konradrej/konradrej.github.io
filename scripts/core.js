@@ -123,6 +123,7 @@ document.querySelectorAll("a[href*=\\#]:not([href=\\#])").forEach(function(el){
 	}
 })();
 
+/*
 if("serviceWorker" in navigator){
 	window.addEventListener("load", function(){
 		navigator.serviceWorker.register("/sw.js").then(function(registration){
@@ -134,6 +135,7 @@ if("serviceWorker" in navigator){
 		});
 	});
 }
+*/
 
 function selectText() {
     var element = event.target
