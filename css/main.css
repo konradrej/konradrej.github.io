@@ -834,7 +834,7 @@ section#contact-me div.wrapper div#social-grid div.circle {
   margin-right: 8%;
   flex: 1 1 auto;
 }
-section#contact-me div.wrapper div#social-grid div.circle.email {
+section#contact-me div.wrapper div#social-grid div.circle.email a {
   background: #146AFF;
 }
 section#contact-me div.wrapper div#social-grid div.circle.email a img {
@@ -842,10 +842,10 @@ section#contact-me div.wrapper div#social-grid div.circle.email a img {
   height: 75%;
   margin-top: 12.5%;
 }
-section#contact-me div.wrapper div#social-grid div.circle.linkedin {
+section#contact-me div.wrapper div#social-grid div.circle.linkedin a {
   background: #D14557;
 }
-section#contact-me div.wrapper div#social-grid div.circle.github {
+section#contact-me div.wrapper div#social-grid div.circle.github a {
   background: #00CECB;
 }
 section#contact-me div.wrapper div#social-grid div.circle:after {
@@ -870,6 +870,10 @@ section#contact-me div.wrapper div#social-grid div.circle a {
   box-sizing: border-box;
   border-radius: 100%;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+section#contact-me div.wrapper div#social-grid div.circle a:hover {
+  opacity: 0.7;
 }
 section#contact-me div.wrapper div#social-grid div.circle a img {
   width: 100%;
