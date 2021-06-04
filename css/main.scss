@@ -609,246 +609,73 @@ section {
 			max-width: 720px;
 			background: none;
 
-			h2 {
-				margin: 0;
-				padding: 0;
-				text-align: center;
-			}
-
 			div#social-grid {
 				display: flex;
-				padding: 2% 10%;
-					padding: 0;
+				padding: 0;
 				box-sizing: border-box;
 
-				div.column {
-					flex: 0 0 50%;
+				div.circle {
+					border-radius: 100%;
+					position: relative;
+					margin-bottom: 30px;
+					margin-left: 8%;
+					margin-right: 8%;
+					flex: 1 1 auto;
 
-					div.circle {
-						border-radius: 100%;
-						position: relative;
-						margin-bottom: 30px;
-
-						&.linkedin {
-							background: #D14557;
-							width: 66%;
-						}
-
-						&.github {
-							background: #00CECB;
-							width: 33%;
-							left: 30%;
-						}
-
-						&.email {
-							background: #146AFF;
-							width: 100%;
-
-							a {
-								padding: 13%;
-
-								img {
-									width: 50%;
-									height: 37.5%;
-									margin: 31.25% auto 3%;
-								}
-							}
-						}
-
-						&:after {
-							content: '';
-							display: block;
-							padding-bottom: 100%;
-						}
+					&.email {
+						background: #146AFF;
 
 						a {
-							color: white;
-							text-decoration: none;
-							text-align: center;
-							position: absolute;
-							width: 100%;
-							height: 100%;
-							padding: 23%;
-							box-sizing: border-box;
-							border-radius: 100%;
-							cursor: pointer;
-
 							img {
 								width: 100%;
-								height: 100%;
-								display: block;
+								height: 75%;
+								margin-top: 12.5%;
 							}
 						}
 					}
-				}
-			}
 
-
-			/*
-			h2 {
-				margin: 0;
-				padding: 0;
-			}
-
-			p {
-				margin: 0;
-				padding: 0;
-
-				a {
-					color: lightgrey;
-
-					&:hover {
-						color: darkgrey;
+					&.linkedin {
+						background: #D14557;
 					}
-				}
-			}
 
-			div.social {
-				width: 100%;
-				display: flex;
-				border-top: 1px solid lightgrey;
-				padding-top: 0.6em;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: center;
+					&.github {
+						background: #00CECB;
+					}
 
-				p {
-					flex: 0 0 auto;
-					margin-right: 0.6em;
-				}
-
-				div.links {
-					flex: 0 0 auto;
-					display: grid;
-					padding: 0.3em;
-					grid-gap: 0.6em;
-					grid-template-columns: 1fr 1fr;
-					grid-template-rows: 1fr 1fr;
-
-					a:not(.email) {
+					&:after {
+						content: '';
 						display: block;
-						padding: 1.5em 1.7em;
-						background: white;
-						box-shadow: 0 0 5px lightgrey;
-						transition: 0.2s ease background, 0.2s ease color;
-						text-align: center;
-						color: black;
+						padding-bottom: 100%;
+					}
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					a {
+						color: white;
 						text-decoration: none;
+						text-align: center;
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						padding: 23%;
+						box-sizing: border-box;
+						border-radius: 100%;
 						cursor: pointer;
 
-						&:hover, &:focus {
-							color: white;
-							background: #D14557;
-						}
-					}
-
-					a.email {
-						perspective: 1000px;
-						display: block;
-
-						div.email-inner {
-							position: relative;
+						img {
 							width: 100%;
 							height: 100%;
-							text-align: center;
-							transition: transform 0.8s;
-							transform-style: preserve-3d;
 							display: block;
-							background: white;
-							box-sizing: border-box;
-							text-align: center;
-							color: black;
-							text-decoration: none;
-
-
-							label.email-inner-front {
-								position: absolute;
-								width: 100%;
-								height: 100%;
-								backface-visibility: hidden;
-								background: white;
-								color: black;
-								padding: 1.5em;
-								box-sizing: border-box;
-								box-shadow: 0 0 5px lightgrey;
-								cursor: pointer;
-								display: block;
-							}
-
-							div.email-inner-back {
-								position: absolute;
-								width: 100%;
-								height: 100%;
-								backface-visibility: hidden;
-								background-color: #D14557;
-								color: white;
-								transform: rotateX(180deg);
-								padding: 1.5em 0.5em;
-								box-sizing: border-box;
-
-								input {
-									width: 100%;
-									border: none;
-									padding: 0.1em;
-									font-family: inherit;
-									font-size: 1em;
-								}
-
-								div.tooltip {
-									content: 'Email kopierad.';
-									display: block;
-									position: absolute;
-									background: rgba(50, 50, 50, 0.8);
-									bottom: 0;
-									left: 0;
-									width: 100%;
-									box-sizing: border-box;
-									padding: 1.5em 0.5em;
-									pointer-events: none;
-									opacity: 0;
-									animation-fill-mode: forwards;
-									animation-duration: 2s;
-									animation-timing-function: ease;
-								}
-
-								@keyframes tooltip {
-									0% {
-										opacity: 0;
-									}
-
-									10% {
-										opacity: 1;
-									}
-
-									90% {
-										opacity: 1;
-									}
-
-									100% {
-										opacity: 0;
-									}
-								}
-							}
-						}
-
-						&:hover, &:focus {
-							div.email-inner {
-								label.email-inner-front {
-									color: white;
-									background: #D14557;
-								}
-							}
-						}
-
-						&.toggle {
-							div.email-inner {
-								transform: rotateX(180deg);
-							}
 						}
 					}
 				}
 			}
-			*/
 		}
 	}
 }
@@ -1028,32 +855,27 @@ section {
 				//padding: 1em 0;
 				width: 90%;
 
-				h2 {
-					text-align: left;
-				}
-
 				div#social-grid {
-					flex-direction: column-reverse;
+					flex-direction: column;
 
-					div.column {
-						flex: 0 0 100%;
+					div.circle {
+						margin-left: 0;
+						margin-right: 0;
 
-						div.circle {
-							&.linkedin {
-								margin-top: -15%;
-								width: 55%;
-							}
+						&.email {
+							width: 65%;
+							left: 35%;
+						}
 
-							&.github {
-								left: 50%;
-								margin-top: -25%;
-								width: 40%;
-							}
+						&.linkedin {
+							margin-top: -15%;
+							width: 55%;
+						}
 
-							&.email {
-								width: 65%;
-								left: 35%;
-							}
+						&.github {
+							left: 50%;
+							margin-top: -25%;
+							width: 40%;
 						}
 					}
 				}
