@@ -898,10 +898,6 @@ section#contact-me div.wrapper div#social-grid div.circle a img {
   section#featured div.wrapper > div.button {
     margin-top: 21.5px;
   }
-  section#contact-me div.wrapper div#social-grid {
-    padding: 0;
-    padding: 2% 10%;
-  }
 }
 @media (max-width: 635px) {
   section#landing div.landing--info {
@@ -1175,7 +1171,6 @@ div.project-container div.popup div.description {
 
 @media (min-width: 1200px) {
   section div.wrapper {
-    min-width: 1200px;
     width: 65%;
   }
 }

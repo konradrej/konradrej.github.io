@@ -743,16 +743,6 @@ section {
 				}
 			}
 		}
-
-
-		&#contact-me {
-			div.wrapper {
-				div#social-grid {
-					padding: 0;
-				padding: 2% 10%;
-				}
-			}
-		}
 	}
 }
 
@@ -1059,7 +1049,6 @@ div.project-container {
 @media (min-width: 1200px) {
 	section {
 		div.wrapper {
-			min-width: 1200px;
 			width: 65%;
 		}
 	}
