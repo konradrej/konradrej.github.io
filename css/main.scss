@@ -226,8 +226,6 @@ section {
 					}
 				}
 
-
-
 				h2 {
 					margin: 0;
 					grid-area: heading;
@@ -246,6 +244,28 @@ section {
 				ul {
 					grid-area: tldr;
 					margin: 0.6em 0;
+				}
+
+				a {
+					text-decoration: none;
+					border-color: #D14557;
+					color: darken(#D14557, 10%);
+
+					&:focus {
+						border-bottom: 1px solid;
+						background: lighten(#D14557, 30%);
+					}
+
+					&:hover {
+						border-bottom: 1px solid;
+						background: lighten(#D14557, 40%);
+					}
+
+					&:active {
+						border-bottom: 1px solid;
+						background: lighten(#D14557, 40%);
+						filter: invert(1);
+					}
 				}
 			}
 		}
@@ -296,10 +316,24 @@ section {
 					text-align: right;
 
 					a {
-						color: lightgrey;
+						text-decoration: none;
+						border-color: #146AFF;
+						color: lighten(#146AFF, 25%);
+
+						&:focus {
+							border-bottom: 1px solid;
+							background: darken(#146AFF, 5%);
+						}
 
 						&:hover {
-							color: darkgrey;
+							border-bottom: 1px solid;
+							background: darken(#146AFF, 20%);
+						}
+
+						&:active {
+							border-bottom: 1px solid;
+							background: darken(#146AFF, 20%);
+							filter: invert(1);
 						}
 					}
 				}

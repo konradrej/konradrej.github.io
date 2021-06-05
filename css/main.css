@@ -44,46 +44,6 @@ html, body {
     opacity: 0;
   }
 }
-@keyframes scroll-arrow-1 {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  55% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes scroll-arrow-2 {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  65% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 div.toast-wrapper {
   display: flex;
   justify-content: center;
@@ -533,6 +493,24 @@ section#about-me div.wrapper div.info ul {
   grid-area: tldr;
   margin: 0.6em 0;
 }
+section#about-me div.wrapper div.info a {
+  text-decoration: none;
+  border-color: #D14557;
+  color: #b62d3f;
+}
+section#about-me div.wrapper div.info a:focus {
+  border-bottom: 1px solid;
+  background: #efc0c6;
+}
+section#about-me div.wrapper div.info a:hover {
+  border-bottom: 1px solid;
+  background: #f9e9eb;
+}
+section#about-me div.wrapper div.info a:active {
+  border-bottom: 1px solid;
+  background: #f9e9eb;
+  filter: invert(1);
+}
 section#projects {
   height: 42.5vw;
   max-height: 481.95px;
@@ -587,10 +565,22 @@ section#projects div.wrapper div.container--info div {
   text-align: right;
 }
 section#projects div.wrapper div.container--info div a {
-  color: lightgrey;
+  text-decoration: none;
+  border-color: #146AFF;
+  color: #94bbff;
+}
+section#projects div.wrapper div.container--info div a:focus {
+  border-bottom: 1px solid;
+  background: #005bfa;
 }
 section#projects div.wrapper div.container--info div a:hover {
-  color: darkgrey;
+  border-bottom: 1px solid;
+  background: #003fad;
+}
+section#projects div.wrapper div.container--info div a:active {
+  border-bottom: 1px solid;
+  background: #003fad;
+  filter: invert(1);
 }
 section#projects div.wrapper div.container--desktop {
   width: 50%;
