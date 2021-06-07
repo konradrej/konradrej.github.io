@@ -1,3 +1,10 @@
+/**
+ * Author: Konrad Rej
+ * Comment: Hi there! Please don't look at this code too closely
+ * 			it was quickly written and is due to be refactored
+ * 			soon. (Written on 2021/06/08)
+ */
+
 //support features
 var supportsPassive = false;
 try {
