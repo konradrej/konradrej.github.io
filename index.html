@@ -30,7 +30,7 @@
 			</div>
 			<input type="checkbox" id="toggle--checkbox" class="toggle--checkbox">
 			<div class="toggle--wrapper">
-				<label for="toggle--checkbox" id="toggle--container" class="toggle--container" aria-label="Toggle Menu"> <!-- tabindex="0"-->
+				<label for="toggle--checkbox" id="toggle--container" class="toggle--container" aria-label="Toggle Menu" tabindex="0">
 					<div class="menu--toggle"></div>
 				</label>
 			</div>
@@ -120,11 +120,11 @@
 				<!--<ul>
 					<li>
 						<article class="project-item">
-							<div class="image-area" style="background-image: url('./images/projects/numedica/cover.jpg');"></div>
-							<div class="image"><img src="./images/projects/numedica/cover.jpg" alt="Förhandsvisning av Numedica hemsidan"></div>
+							<div class="image-area" style="background-image: url('./images/projects/------/cover.jpg');"></div>
+							<div class="image"><img src="./images/projects/------/cover.jpg" alt="Förhandsvisning av ------ hemsidan"></div>
 							<div class="information">
 								<header>
-									<h1>Numedica - Komplett sida</h1>
+									<h1>------ - Komplett sida</h1>
 								</header>
 								<p>
 									I det här projekt hanterade jag både backend infrastrukturen och frontend implementeringen. Själva design arbetet utfördes av en tredje part men omvandlades till kod av mig.
@@ -152,7 +152,14 @@
 						<div class="circle email">
 							<a href="mailto:rej.konrad@gmail.com">
 								<picture>
-									<source srcset="./images/email-192x144.webp" type="image/webp">
+									<source srcset="./images/email-192x144.webp 192w,
+													./images/email-96x72.webp 92w"
+											sizes="(max-width: 620px) 146px,
+													"
+											type="image/webp">
+									<source srcset="./images/email-192x144.png 192w,
+													./images/email-96x72.png 92w"
+											type="image/png">
 									<img src="./images/email-192x144.png" alt="rej.konrad@gmail.com">
 								</picture>
 							</a>
@@ -175,8 +182,15 @@
 						<div class="circle github">
 							<a href="https://github.com/konradrej" rel="noreferrer" target="_blank">
 								<picture>
-									<source srcset="./images/github_footer.webp" type="image/webp">
-									<img src="./images/github_footer.png" alt="Konrads Github">
+									<source srcset="./images/github-192x192.webp 192w,
+													./images/github-96x96.webp 92w"
+											sizes="(max-width: 620px) 146px,
+													"
+											type="image/webp">
+									<source srcset="./images/github-192x192.png 192w,
+													./images/github-96x96.png 92w"
+											type="image/png">
+									<img src="./images/github-192x192.png" alt="Konrads Github">
 								</picture>
 							</a>
 						</div>
