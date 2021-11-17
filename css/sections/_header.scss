@@ -41,7 +41,7 @@ body > header {
 				img {
 					transform-origin: 0 0;
 					transform: scale(1.5);
-					will-change: transform;
+					width: 4em;
 					height: 4em;
 					display: block;
 					transition: transform 0.3s;
